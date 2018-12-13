@@ -8,6 +8,7 @@
    * [ ] **new** keyword
    * [ ] Pass by value vs Reference
 ## Scope
+  * [ ] What is Scope ?
   * [ ] Let vs Var , Hoisting
   * [ ] IIFE
   * [ ] Dynamic vs Lexical

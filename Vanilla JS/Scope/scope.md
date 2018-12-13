@@ -86,7 +86,12 @@ If an RHS look-up fails to ever find a variable, anywhere in the nested Scopes, 
 
 
 ## Let vs Var , Hoisting
+
 ## IIFE
 ## Dynamic vs Lexical
+
+Lexical Scope is used by most languges ( including JS ), dynamic is used by few languages only.
+
+
 ## **'this'** keyword
 ## Call, apply and Bind
