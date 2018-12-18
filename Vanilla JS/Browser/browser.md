@@ -298,5 +298,19 @@
 
   ### Global Object , Window Object
   ### Timers
-  ### Event Listeners
+  ### Event Emitter and Event Listeners
+
+  An Event Listener is the code that responds to an event.
+  An Event emiter is the code that conveys that an event happened.
+
+  You could have several listeners listening to the same event.
+
+  Essentially an event-emitter is based on the Observer Pattern. An Object called the ```Observable``` allows other objects called ```Observers``` to be notified when some state in the Observable changes.
+
+  An event emitter class typically has 3 methods to facilitate the behaviors of observing and notifying. 
+
+  * addListener ( event, callback)
+  * emit (event, ...args)
+  * removeListener (event,callback)
+
   ### Throttling / Debouncing
