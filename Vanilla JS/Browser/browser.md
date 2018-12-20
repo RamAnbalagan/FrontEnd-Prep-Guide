@@ -314,3 +314,52 @@
   * removeListener (event,callback)
 
   ### Throttling / Debouncing
+
+To put it in simple terms:
+
+Throttling will delay executing a function. It will reduce the notifications of an event that fires multiple times.
+Debouncing will bunch a series of sequential calls to a function into a single call to that function. It ensures that one notification is made for an event that fires multiple times.
+
+If you have a function that gets called a lot - for example when a resize or mouse move event occurs, it can be called a lot of times. If you don't want this behaviour, you can Throttle it so that the function is called at regular intervals. Debouncing will mean it is called at the end (or start) of a bunch of events.
+
+  Visual representation : http://demo.nimius.net/debounce_throttle/
+
+Throttle:
+* I will take a function and the minimal timing between two events
+* I will return a stand-in function that will be throttled
+* The stand-in function will record the time of each call to the original listener
+* The stand-in will compare the time of the current event with the last time it invoked the original handler, and will neglect to invoke the handler if the time difference is less than the delay
+```javascript
+  function throttled(delay, fn) {
+  let lastCall = 0;
+  return function (...args) {
+    const now = (new Date).getTime();
+    if (now - lastCall < delay) {
+      return;
+    }
+    lastCall = now;
+    return fn(...args);
+  }
+}
+```
+Debouncee
+
+* Take a delay in milliseconds and a handler function
+* Return a stand-in debounced function
+* When the stand-in is invoked, schedule the original listener to be invoked after the specified delay
+* When the stand-in function is invoked again, cancel the previously scheduled call, and schedule a new one after the delay
+* When calls to the stand-in function do not happen for a while, the scheduled call to the listener will finally go through
+```javascript
+function debounced(delay, fn) {
+  let timerId;
+  return function (...args) {
+    if (timerId) {
+      clearTimeout(timerId);
+    }
+    timerId = setTimeout(() => {
+      fn(...args);
+      timerId = null;
+    }, delay);
+  }
+}
+```
