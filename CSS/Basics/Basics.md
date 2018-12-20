@@ -71,7 +71,7 @@
     | ```div + p { }``` | Adjacent Sibling combinator |
     |```div ~ p {}``` | General Sibling combinator|
 
-    ![Markdown Logo](../../Misc/Resources/Adjacent sibling.png)
+    ![Markdown Logo](https://github.com/RamAnbalagan/FrontEnd-Prep-Guide/blob/master/Misc/Resources/Adjacent%20sibling.png)
 ## Specificity
 ## The Box Model
 ## Positioning
