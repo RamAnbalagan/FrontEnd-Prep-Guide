@@ -8,10 +8,15 @@
    * [ ] **new** keyword
    * [ ] Pass by value vs Reference
 ## Scope
+<<<<<<< HEAD
   * [ ] What is Scope ?
+=======
+  * [ ] What is Scope?
+>>>>>>> change scope syllabus
   * [ ] Let vs Var , Hoisting
   * [ ] IIFE
   * [ ] Dynamic vs Lexical
+  * [ ] Closures
   * [ ] **'this'** keyword
   * [ ] Call, apply and Bind
 ## Objects
