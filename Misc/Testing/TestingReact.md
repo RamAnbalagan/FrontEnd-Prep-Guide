@@ -88,14 +88,90 @@ expect(toggleCompletionSpy).toHaveBeenCalled();
 
 ## Testing Stateful components
 
+>**It is recommended you don't explicitly set state like comp.setState({toDo: `foo`})**, because a user would not do so.
+
 ![stateful_components](../resources/stateful_components.png)
 
+#### Testing handle change ()
 * You would render and pass props the same way, settting it up using a shallow render.
 
 * We could directly access the handleChange() using .instance(),but we shouldn't. Because weare testing the method, but not the implementation. We want to make it as realistic as possible.
   ~~newTodo.instance().handleCHange( {target : {value 'some to do text'}});~~
 
-* What we do want to do is to find the input -> simulate a change and pass an object. We make our own fake event here with a target and then pass it a value and see if it is what was expect.
+* What we do want to do is to find the input -> simulate a change and pass an object. We make our own fake event here with a target and then pass it a value and see if it is what was expect in the `state`
 ![stateful_test](../resources/stateful_test.png)
 
 > Here we don't use the actual DOM event firing, we are all in JS so we create everything using a mock event.
+
+#### Testing SubmitTodo ()
+ 
+ >It is recommended that you don't use setState() , and try to use simulate the state.
+
+ We are going to 3 different tests where we shallow render the component in each test and have checks as following.
+
+ 
+ Test 1 )
+  ```javascript 
+  it( '   ' , () => {
+    const submit = jest.fn();
+    const newToDo = shallow( .....) ;
+
+    newToDo.find(...)
+           .simulate(....)
+           .simualte(....);
+    // Check expected submit was called with props
+    expect(submit).toHaveBeenCalledWith('....');
+  });
+  ```
+  Test 2 ) State is cleared
+  ```javascript
+  t( '   ' , () => {
+    const newToDo = shallow( .....) ;
+
+    newToDo.find(...)
+           .simulate(....)
+           .simualte(....);
+    // Check state is as expected
+    expect(newTodo.state().toDo).toBe('');
+  });
+  ```
+  Test 3 ) PreventDefault is called
+  ```javascript
+  t( '   ' , () => {
+    const preventDefault = jest.fn();
+    const newToDo = shallow( .....) ;
+
+    newToDo.find(...)
+           .simulate(....)
+           .simulate(....);
+    expect(preventDefault).toHaveBeenCalled();
+  });
+  ```
+## UI Testing
+We are going to be using snapshots to test UI.
+They are not mutually exclusive but make a powerful pair. They can be used to catch UI regressions.
+![ExpectSnapshot](../resources/ExpectSnapshot.png)
+
+A snapshot is a string basically with some react looking stuff in it.
+
+The toJson library takes the JS rendered component into something like this.
+![snapshot](../resources/snapshot.png)
+
+* You don't have to exhaustive tests checking element lengths and classes, like finding classList lengths.
+* No need to re-write tests for every minor UI change, just update the snapshot.
+* Git diffs are more clear and concise for UI changes.
+
+## Necessary Dependencies
+
+* Jest
+* Enzyme
+* enzyme-to-json
+* react-addon-test-utils ( required by Enzyme) 
+* react-test-renderer - required by Enzyme
+* react-test-renderer
+* JSDOM ( optional)
+
+
+
+
+
