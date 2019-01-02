@@ -69,5 +69,37 @@
     obj.b.c = 2;
     console.log(copy); // {a:1, b:{c:1}}
   ```
+  #### 5. Comparing Objects
+  Because the == sign only compares identity, sometimes a deep comparision is needed to ensure two objects are equal.
+  The following deepEqual method could be used to compare other data types as well.
+  ##### note: because null is also an object type, checking (typeof x == "object" && x != null) is neccessary to ensure deepEqual is dealing with an object before looping through the objects props.
+  
+  ```javascript
+  var deepEqual = function (x, y) {
+    if (x === y) {
+      return true;
+    }
+    else if ((typeof x == "object" && x != null) && (typeof y == "object" && y != null)) {
+      if (Object.keys(x).length != Object.keys(y).length)
+        return false;
+
+      for (var prop in x) {
+        if (y.hasOwnProperty(prop))
+        {  
+          if (! deepEqual(x[prop], y[prop]))
+            return false;
+        }
+        else
+          return false;
+      }
+
+      return true;
+    }
+    else 
+      return false;
+  }
+  ```  
+  [stackoverflow](https://stackoverflow.com/questions/25456013/javascript-deepequal-comparison)
+  
 ### Protypical Inheritance
 ### Constructors vs OLOO
