@@ -1,11 +1,3 @@
-# HTML
-----
-### Html element Text setting 
-
-.textContent 
-.innerText
-.innerHTML 
-
 ### Semantic Markup
 Semantic HTML or semantic markup is HTML that introduces meaning to the web page rather than just presentation. For example, a `<p>` tag indicates that the enclosed text is a paragraph.
 

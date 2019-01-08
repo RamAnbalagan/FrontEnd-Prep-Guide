@@ -324,3 +324,12 @@ So it is used on items neigboring floating items, forcing a new line.
 
 
 ## Display
+
+1. **Inline** 
+    - Do not Start on a new line.
+    - Take only the necessary width
+    - Ex : `<span>, <img> , <a>`
+2. **Block**
+    - Start on a new line
+    - Take full width whenever available.
+    - Ex : `<div>, <h1> - <h6>, <p>, <form>`

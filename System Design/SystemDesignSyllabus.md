@@ -11,8 +11,7 @@ TechSith
          authentication,
             ssl cert,
               package management,
-               semantic versioning﻿
-
+               semantic versioning
 
 FE Specific topics
 --------
