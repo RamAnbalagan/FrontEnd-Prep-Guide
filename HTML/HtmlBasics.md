@@ -95,3 +95,4 @@ For example : they are `display:block`. It also has some default margins and pad
  * the `<select>` tag is used to create a dropdown kinda option selector , with the `option` selector.
  * Other notable `input` types are **number** and **date** . These are HTML5 standards.
  * HTML5 added a `placeholder` attribute for you to use, before we needed JS to do this.
+ * `<input type="submit">
