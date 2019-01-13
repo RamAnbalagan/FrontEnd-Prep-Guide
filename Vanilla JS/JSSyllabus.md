@@ -7,6 +7,7 @@
    * [ ] Error Handling
    * [ ] **new** keyword
    * [ ] Pass by value vs Reference
+   * [ ] Command Line input
 ## Scope
   * [ ] What is Scope ?
   * [ ] Let vs Var , Hoisting
@@ -18,7 +19,7 @@
 ## Objects
   * [ ] Objects as a Datastructure
         1. HashMap
-        2. Iteration
+        2. Iteration 
         3. JSON operation
   * [ ] Protypical Inheritance
   * [ ] Constructors vs OLOO

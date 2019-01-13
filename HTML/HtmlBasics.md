@@ -95,4 +95,23 @@ For example : they are `display:block`. It also has some default margins and pad
  * the `<select>` tag is used to create a dropdown kinda option selector , with the `option` selector.
  * Other notable `input` types are **number** and **date** . These are HTML5 standards.
  * HTML5 added a `placeholder` attribute for you to use, before we needed JS to do this.
- * `<input type="submit">
+ * `<input type="submit" value=Submit>` would be the last field in the form which provides a button for the user to click submit and submit it to process.php
+
+ ## Buttons 
+
+ ## Images
+   * Self closing tag , Inline tag
+   * the `src` attribute holds the link to the image itself.
+   * the `alt` attribute holds some alternate text to display incase the image is not found.
+   * There is also a Height and width attribute that you can leverage, although CSS is a better way to do it.
+  
+ ## Quotations
+   You can use the `blockquote` tag to mention some text along with a link to the citation!
+
+## `abbr` tag
+   Used for abbreviations, which shows the full title on Hover!
+
+## HTML5 Semantic tags
+   ![semantic](../Misc/Resources/semantic.png)
+
+   Search engines like google will actually look at the tags and use that for showing results!

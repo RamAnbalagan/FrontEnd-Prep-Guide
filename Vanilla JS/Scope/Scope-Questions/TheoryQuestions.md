@@ -106,15 +106,44 @@
 	var stoleSecretIdentity = hero.getSecretIdentity.bind(hero);
 	```
 6. What is the output of this and why ?
-			```javascript
-				function foo() {
-					console.log( this.a );
-				}
-				var a = 2;
+	```javascript
+	function foo() {
+		console.log( this.a );
+	}
 
-				(function(){
-					"use strict";
+	var a = 2;
+	(function(){
+		"use strict";
 
-					foo(); // 2
-				})();
-			```
+		foo(); // 2
+	})();
+	```
+7. How do you borrow a function by implicit assignment of this ?
+8. How do you explicitly bind this ?
+		-Call , apply , bind
+9. How can you seal a specific this to a function? Why do that ? why not ? 
+ Answer : Using the bind keyword,  the hard binding now makes it predictable. The downside is that you lose the flexibility. 
+
+# Scope
+1. What are the outputs of these calls
+   ```javascript
+	 var foo = 'bar';
+
+	 function bar() {
+		 var foo = 'baz';
+
+		 function baz(foo) {
+			 foo = 'bam';
+			 bam = 'yay';
+		 }
+		 baz();
+	 }
+
+	 bar();
+	 foo;     // ?   bar
+	 bam;     //  ?  yay
+	 baz();   // ? reference error
+	 ```
+
+# IIFE 
+1. 
