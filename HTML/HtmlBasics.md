@@ -115,3 +115,43 @@ For example : they are `display:block`. It also has some default margins and pad
    ![semantic](../Misc/Resources/semantic.png)
 
    Search engines like google will actually look at the tags and use that for showing results!
+
+## Template Tag
+
+  The template tag hides the content from the client, the contents from it can be rendered using JS.
+
+  Use the `<template>` tag when you have HTML code you want to use over and over again, but not until you ask for it. To do this without the `<template>` tag, you have to create the HTML code with JavaScript to prevent the browser from rendering the code.
+  
+  ```html
+  <!DOCTYPE html>
+  <html>
+  <body>
+
+  <h1>The template Tag</h1>
+
+  <p>Click the button to get the content from a template, and display it in the web page.</p>
+
+  <button onclick="showContent()">Show content</button>
+
+  <template>
+    <h2>Flower</h2>
+    <img src="img_white_flower.jpg" width="214" height="204">
+  </template>
+
+  <script>
+  function showContent() {
+    var temp = document.getElementsByTagName("template")[0];
+    var clon = temp.content.cloneNode(true);
+    document.body.appendChild(clon);
+  }
+  </script>
+
+  </body>
+  </html>
+  ```
+
+## Progress Tag
+
+The HTML `<progress>` element displays an indicator showing the completion progress of a task, typically displayed as a progress bar.
+
+`<progress value="70" max="100">70 %</progress>`

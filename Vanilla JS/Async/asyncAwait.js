@@ -28,7 +28,7 @@ function createPost(post) {
 }
 
 
-// Async / Await
+// Async / Await : cleaner way to deal with promises
 
 async function init() {
   await createPost({title: 'Post three', body : 'This is post three'});
