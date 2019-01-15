@@ -66,7 +66,19 @@ Array.prototype.myReduce = function (callBack,initialValue) {
   return acc;
 }
 
-// 0 
+Array.prototype.print = function() {
+  let result = '';
+  for(let i = 0 ;i<this.length; i++) {
+    if(i!== this.length-1){
+      result += this[i];
+      result += ',';
+    }
+    else{
+      result+=this[i];
+    }
+  }
+  console.log(result);
+}
 
 
 // Execution
@@ -88,3 +100,6 @@ console.log(b.myReduce(function(accumulator, currentValue, currentIndex, array){
   return accumulator + currentValue;
 },5));
 
+console.log('Implement array print');
+// [1,2].print(); //1,2
+[1,2,3].print();
