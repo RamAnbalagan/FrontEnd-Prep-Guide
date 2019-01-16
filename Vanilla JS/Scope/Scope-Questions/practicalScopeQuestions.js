@@ -28,3 +28,4 @@ const obj2 = {
   }
 }
 obj2.getA().getB(); 
+
