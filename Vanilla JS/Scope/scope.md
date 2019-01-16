@@ -87,7 +87,11 @@ The way you distinguish them , is if the `function` keyword is the first thing i
 Expression : var foo = function bar () { }
 Declaration : function bar () { }
 
-> **The important difference is that with Function expressions, it is enclosed within it's own scope. So the function doesn't live outside. Whereas function declarations live in the outer sceop where they are defined!** 
+Function declarations get hoisted! whereas function declarations don't , since they are on the RHS of the assignment! Since only the LHS get's hoisted! 
+
+> **The important difference is that with Function expressions, it is enclosed within it's own scope.It is not accessible by it's parent. So the function doesn't live outside. Whereas function declarations live in the outer scop where they are defined!** 
+
+https://javascriptweblog.wordpress.com/2010/07/06/function-declarations-vs-function-expressions/
 
 <br>**3 negatives to Anonymous function expressions**
 1. No way to refer to the function, from inside the function. Can't do recursion or reset.
