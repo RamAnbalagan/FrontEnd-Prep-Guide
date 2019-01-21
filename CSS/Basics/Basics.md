@@ -7,10 +7,10 @@ Like HTML, CSS is not really a programming language. It is not a markup language
   * The browser converts HTML and CSS into the DOM( Document object model). The DOM represents the document in the computer's memort. It combines the document's content with it's style.
   * The browser displays the contents of the DOM
 
- ![Css](https://github.com/RamAnbalagan/FrontEnd-Prep-Guide/blob/master/Misc/Resources/Css.png)
+![css](../../Misc/Resources/Css.png)
 
 Anatomy of a CSS Ruleset 
- ![anatomy](https://github.com/RamAnbalagan/FrontEnd-Prep-Guide/blob/master/Misc/Resources/anatomy.png)
+ ![anatomy](../..//Misc/Resources/anatomy.png)
 
 **Applying CSS**
 You can apply CSS in 3 ways
