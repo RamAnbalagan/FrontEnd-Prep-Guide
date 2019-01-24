@@ -14,9 +14,13 @@ Anatomy of a CSS Ruleset
 
 **Applying CSS**
 You can apply CSS in 3 ways
-* External Stylesheet : Link placed in the `<Head/>`
-* Internal Stylesheet : Placed in the `<Head/>`
-* Inline Style : Style mentioned inside the `element`
+* **External Stylesheet** : Link placed in the `<Head/>`
+  Preferred way to do things, in production code.
+  The href works the same way it works in `<a>` tags
+  **`<link rel="stylesheet" href="./styles.css">`**
+  
+* **Internal Stylesheet** : Placed in the `<Head/>`
+* **Inline Style** : Style mentioned inside the `element`
 ```javascript
 <!DOCTYPE html>
 <html>
@@ -38,7 +42,8 @@ You can apply CSS in 3 ways
   </body>
 </html>
 ```
-
+  We don't want to put any inline / internal CSS in the actual HTML because we want to maintain **Seperation of concern**!! Keeping the markup and CSS seperate.
+<hr>
 ## Selectors
 
 1 ) Standard  Selectors
@@ -98,9 +103,9 @@ You can apply CSS in 3 ways
     }
     ```
 
-> Using div#ad1 { } is a good way to visually let yourself know that you are targetting a div of id=ad1 , although id by itself would suffice.
-
-1) Combinator Selectors
+> **Using div#ad1 { } is a good way to visually let yourself know that you are targetting a div of id=ad1 , although id by itself would suffice.**
+<br>
+1) **Combinator Selectors**
    
     | Combinator     | Name          |
     | -------- | -------------- |
@@ -108,12 +113,15 @@ You can apply CSS in 3 ways
     | ```div > p { } ``` | Direct Child combinator  |
     | ```div + p { }``` | Adjacent Sibling combinator |
     |```div ~ p {}``` | General Sibling combinator|
+    **Adjacent Sibling**
+    ![Adjacent](/Misc/Resources/Adjacent%20sibling.png)
+    **General Sibling**
+    ![General](/Misc/Resources/General%20sibling.png)
+    **Adjacent sibling selecor**
+    ![Child](/Misc/Resources/Adjacent%20sibling.png)
 
-    ![Adjacent](https://github.com/RamAnbalagan/FrontEnd-Prep-Guide/blob/master/Misc/Resources/Adjacent%20sibling.png)
-    ![General](https://github.com/RamAnbalagan/FrontEnd-Prep-Guide/blob/master/Misc/Resources/General%20sibling.png)
-    ![Child](https://github.com/RamAnbalagan/FrontEnd-Prep-Guide/blob/master/Misc/Resources/Adjacent%20sibling.png)
 
-2) Psuedo Selectors
+2) **Psuedo Selectors**
    
     Pseudo-classes allow the selection of elements based on state information that is not contained in the document tree.
     Example: a:visited will match all `<a>` elements that have been visited by the user.
@@ -150,7 +158,7 @@ You can apply CSS in 3 ways
     |`e:focus`| Targets all elements of type e when the user focuses on it.|
 
 
-3) Pseudo element selectors
+3) **Pseudo element selectors**
    Pseudo-elements represent entities that are not included in HTML.
 
    Example: p::first-line will match the first line of all `<p>` elements.
@@ -215,14 +223,17 @@ There are 5 important properties that allow you to size and distribute your HTML
 - **Padding**  : Lawn
 - **Border**   : Fence
 - **Margin**   : Tress, shrubs and unused land between fence and neighbour
-- 
+
 Here is what that looks like in a diagram:
- ![boxmodel](https://github.com/RamAnbalagan/FrontEnd-Prep-Guide/blob/master/Misc/Resources/boxmodel.png)
+ ![boxmodel](/Misc/Resources/boxmodel.png)
 
 Notes:
 * Background color affects only the pixels within the border. Margins are not affected.
 * When you declare margin and padding with one value, like 4px, CSS automatically applies the number to the top, bottom, left and right of the element.
-
+* Margin lies outside the box , padding lies inside!
+* The default height of a box is determined by how much content it holds.
+* The default width of a box is determined by if it is an inline / block level element.
+  
 We can visualize the box model from using a house analogy.
 ```javascript
 .myProperty{
@@ -233,10 +244,19 @@ We can visualize the box model from using a house analogy.
     margin: 4px 8px;
 }
 ```
- ![Boxmodelhouse](https://github.com/RamAnbalagan/FrontEnd-Prep-Guide/blob/master/Misc/Resources/Boxmodelhouse.png)
+ ![Boxmodelhouse](/Misc/Resources/Boxmodelhouse.png)
 
  The difference between the margin and the padding is perhaps the most challenging part. The two are used for different reasons. As you can see with the green grass, the padding will still have a background color, if you choose to set it. This is also the property you want to change if you want to change the distance between the border and the content.
 
+  **Border-box**
+  The box-sizing property defines how the width and height of an element are calculated: should they include padding and borders, or not.
+
+  Include padding and border in the element's total width and height:
+
+  `box-sizing : border-box` property.
+
+  Without this padding will not be counted as part of the width of the element!
+<hr>
 ## Positioning
 When we need to shift things left and right, we used `margin left` and `margin right`.
  To center an element we use `margin: 0 auto`
@@ -333,3 +353,151 @@ So it is used on items neigboring floating items, forcing a new line.
     - Start on a new line
     - Take full width whenever available.
     - Ex : `<div>, <h1> - <h6>, <p>, <form>`
+
+<hr>
+## Fonts
+
+We might want to use different fonts for different websites from different sources.
+
+**Web safe fonts** : There are some font families , which are available in all browsers and these are called web safe fonts. Any other fonts must be included withint the web document bundle like you would include a CSS file.
+
+Font-based properties.
+```
+body{
+  font-family: Verdana, Geneva, Tahoma, san-serif
+  font-size: 18px;
+  font-weight: bold;
+  font-style: italic;
+  line-height: 1.6em;
+}
+```
+
+**Using an external Font** : Google fonts
+* Go to fonts.google.com 
+* Search for a font and copy it's link / import it
+* Add the font family to your html and you're done.
+<hr>
+## CSS Units
+**Absolute**
+cm : Centimeters
+mm : millimeters
+**Relative**
+%   : To parent element
+em  : To font-size of parent element
+rem : To font-size of root element
+vw  : To 1% of viewport width
+vh  : To 1% of viewport width
+<hr>
+## Colors
+
+Colors are set using the `color : ...` property.
+We can use it for borders, background or a color property or anything in general.
+
+There are usually 3 options of setting color .
+* **Using the color name** 
+  ```
+  h1 {
+    color: red;
+  }
+  ```
+* **Using the RBG triplet**
+  ```
+  h1 {
+    color: rgb(255,0,0); //red
+  }
+  ```
+* **Using the Hexadecimal format**
+  ```
+  h1 {
+    color: #ff0000; //red
+  }
+  ```
+  Just like RGB, the first two are for R ,the second is for Green and the last two for Blue.
+
+  The only one we want to remember the numbers for the basic ones.
+
+  Reference website : www.color-hex.com
+<hr>
+## Backgrounds and borders
+
+####Borders
+Border has 3 **mandatory** properties.
+```
+border-width: 3px;
+border-color: red;
+border-style: solid;
+```
+
+The prefered way to do it is using all three properties in one line! 
+`border: 3px solid red`
+
+We could also opt to use `border-top` or `border-left` etc, just to target those specific ones if prefered.
+
+**Border radius**
+We can round off the default square radius by using a `border-radius: 10px` property
+
+>**border-radius is a CSS3 property : before this we had to insert images for the border corners to look rounded**
+
+####Backgrounds
+
+* Backgrounds can be set using either the `background` or `background-color` property.
+
+* You can also set images as backgrounds using the following syntax.
+  ```
+  #box {
+    background-image: url(`./image.png`);
+  }
+  ```
+
+  Rarely you might also need to use the `background-repeat` property to render multiple copies of the background image to cover the whole element / div incase the image is too small .
+
+  You could also use the `background-position` keyword to move the background image around!
+
+* Having a fixed image as a background is handy at times as well.
+  ```
+  background: url('./img/leaf.png') no-repeat center center;
+  background-attachment: fixed;
+  ```
+  The first property is combination of all the other properties in one line!
+<hr>
+## Box Model
+<hr>
+## Float and Align
+
+* **Centering** :  We grab the content we want to center, and put it into a container div, then we give it a width and set margin to auto.
+  ```
+    .container {
+      width: 980px;
+      margin: 0 auto;
+    }
+  ```
+  The issue with this way of centering using the `width` property is that it is not responsive and fails on smaller devices. We can better this by using `max-width`
+    ```
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+  ```
+  When you have specified a width on the object that you have applied margin: 0 auto to, the object will sit centrally within it's parent container.<br>
+  Specifying auto as the second parameter basically tells the browser to automatically determine the left and right margins itself, which it does by setting them equally. It guarantees that the left and right margins will be set to the same size. The first parameter 0 indicates that the top and bottom margins will both be set to 0.
+  
+*
+*
+*
+<hr>
+## Links and Buttons
+<hr>
+## Menus
+<hr>
+## Inline vs Block
+<hr>
+## CSS Reset 
+```
+* {
+  margin: 0;
+  padding: 0;
+  border-sizing: border-box;
+}
+```
+Removes all the default spacing that the browser gives across all elements!
+

@@ -131,6 +131,13 @@
     ![htmlinputs](../Misc/Resources/htmlinputs.png)
  <hr>
 
+ ## Divs , IDs , Classes , Spans 
+  
+  * **Classes vs Ids** : Classes can be repeated, whereas ID is unique and it is best practice to not repeat them!
+
+  * **Divs vs Spans** : Div is a block level element. It pushes the next thing to the next line! Where as a Span is an in-line element!
+ <hr>
+
  ## Block vs In-line
   * A block level element will take 100% of the width and span all across the page. The next div will go to the next line .
   
@@ -140,15 +147,14 @@
 
  <hr> 
 
- ## Buttons 
-
-
-  
- ## Quotations
-   You can use the `blockquote` tag to mention some text along with a link to the citation!
-
-## `abbr` tag
-   Used for abbreviations, which shows the full title on Hover!
+ ## Entities and Symbols
+  * **Non breaking space** : `&nbsp`, used for putting in white space in html, since regular space won't be recognized by HTML.
+  * **Greater than** : `&gt`
+  * **Lesser than** : `&lt`
+  * **Currency** : `&euro`
+  *  **Card Suites** : `&clubs`
+  *   **Copyright** : `&copy`
+ <hr>
 
 ## HTML5 Semantic tags
    ![semantic](../Misc/Resources/semantic.png)
@@ -194,3 +200,9 @@
 The HTML `<progress>` element displays an indicator showing the completion progress of a task, typically displayed as a progress bar.
 
 `<progress value="70" max="100">70 %</progress>`
+
+## Quotations
+   You can use the `blockquote` tag to mention some text along with a link to the citation!
+
+## `abbr` tag
+   Used for abbreviations, which shows the full title on Hover!

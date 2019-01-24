@@ -1,7 +1,8 @@
 # CSS Syllabus
 --------------
 ## Basics
-* [ ] The Cascade, Styles,Properties
+* [ ] What is CSS, how to apply it?
+* [x] The Cascade, Styles,Properties
 * [ ] Selectors
 * [ ] Specificity
 * [ ] The Box Model
