@@ -1,0 +1,61 @@
+<!-- Create a link and style it as per these rules
+
+1. Link should only be underlined, when hovering over!
+2. Upon hovering over the link it should change color to green
+3. Upon clicking it should change color to red.
+
+Follow up :
+
+Also create a button and make sure it is styled the same way as the link!
+* button should have a color
+* button should be rounded at the edges
+* Good looking font  for both!
+* the pointer should show up for the button too when hovering, just like how it shows up for the link!
+
+Make them identical looking
+-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>button and link stlying</title>
+  <style>
+    body {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    /* a:hover{
+      color: green;
+      text-decoration: underline
+    } */
+    a{
+      text-decoration: none;
+      color: #333;
+    }
+    /* a:visited {
+      color: red;
+    } */
+
+    .btn {
+      background: lightblue;
+      color: #fff;
+      border: none;
+      font-size:16px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      color : #f4f4f4;
+      background: #446190;
+    }
+  </style>
+</head>
+<body>
+  <a class="btn" href="#"> My link</a>
+  <button class="btn"> My button </button>
+</body>
+</html>

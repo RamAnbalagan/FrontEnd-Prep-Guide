@@ -267,43 +267,45 @@ When we need to shift things left and right, we used `margin left` and `margin r
 
  There 5 positions values in CSS
 
- 1. Static : Default value in CSS.
+ 1. **Static** : Default value in CSS.
     After applying a position in CSS, we can use top and left to that element to move it around.
- 2. Fixed : When you apply fixed to an element, you take it out of the flow of the document and you can control it using ```top``` and ```left```
+ 2. **Fixed** : When you apply fixed to an element, you         take it out of the flow of the document and you can        control it using ```top``` and ```left```
     It can overlap and doesn't really care about other elements. It does not move regardless of what happens, including scrolling or othre elements.
 
     Usually used for Nav bars.
-  1. Inherit : It's just going to inherit the position from the parent.
-  2. Absolute :
-    It's going to take it out of the flow of the document fix it to the position similar to `fixed` but one difference is that it is not fixed to the location, if you scroll it moves along with all other elements.
-    When you give an element Absolute positioning, it positions an element relative to the nearest element that is not staticly positioned.
-    Going by this logic, an absolute element has a parent, which is by default the browser, if there is a closer parent( an element with some positioning other than static) then it choses that as the parent.
-    
-    .box2 {
-      background : lightpink;
-      position: absolute;
-      top:0;
-      left:0;
-    }
-  3. Relative :Positions it relative to the default position of the element in the document.
-  For example in this case, we would be position the element box 50px below the current position and 50px right .
+3. **Inherit** : It's just going to inherit the position from the parent.
+4. **Absolute** :
+  It's going to take it out of the flow of the document fix it to the position similar to `fixed` but one difference is that it is not fixed to the location, if you scroll it moves along with all other elements.
+  When you give an element Absolute positioning, it positions an element relative to the nearest element that is not staticly positioned.
+  Going by this logic, an absolute element has a parent, which is by default the browser, if there is a closer parent( an element with some positioning other than static) then it choses that as the parent.
+      ```
+      .box2 {
+        background : lightpink;
+        position: absolute;
+        top:0;
+        left:0;
+      }
+      ```
+3. **Relative** :Positions it relative to the default position of the element in the document.
+For example in this case, we would be position the element box 50px below the current position and 50px right .
 
+      ```
+      .box3 {
+        background : lightpink;
+        position: absolute;
+        top:50;
+        left:50;
+      }
+      ```
     
-    .box3 {
-      background : lightpink;
-      position: absolute;
-      top:50;
-      left:50;
-    }
     
-    
+      ![positioning](./../../Misc/Resources/positioning.png)
 
-
-  Difference between absolute and relative :
-    1 - The starting point
-        *  Absolute starts at top left of browser / parent
-        *  Relative starts at where it would have been at in the flow of the document.
-    2 - When it comes to using Relative - Space is not taken up by other elements.
+**Difference between absolute and relative** :
+          1 - The starting point
+              *  Absolute starts at top left of browser / parent
+              *  Relative starts at where it would have been at in the flow of the document.
+          2 - When it comes to using Relative - Space is not taken up by other elements.
 
   Z-Index : The `z-index` is used to specify the order of stacking when it comes to overlapping elements. A higher Z-index means that element is on top of the lower Z-indexes. Also these Z-indexes can only be applied if the element is `relative, absolute or fixed`.
 
@@ -480,16 +482,29 @@ We can round off the default square radius by using a `border-radius: 10px` prop
   ```
   When you have specified a width on the object that you have applied margin: 0 auto to, the object will sit centrally within it's parent container.<br>
   Specifying auto as the second parameter basically tells the browser to automatically determine the left and right margins itself, which it does by setting them equally. It guarantees that the left and right margins will be set to the same size. The first parameter 0 indicates that the top and bottom margins will both be set to 0.
-  
+
+* **Text-align** : Used to align text inside an element, does not align anything else.
+  Default value is left! 
+  Possible values : `left`, `right` , `justify` and `center`
+* **Floats**
+  Before flexbox and grid this was used to align elements and boxes on a web-page . It is recommended now since it is hard to make it responsive and also needs to be cleared, but it is still good to know how these work.<br>
+  How to use floats :
+  * Float in a direction . `float:left`
+  * Set a width. `width:70%`
+  * Set border-box value. `box-sizing: border-box`
 *
-*
-*
-<hr>
-## Links and Buttons
-<hr>
-## Menus
 <hr>
 ## Inline vs Block
+  We change `block` level items to `inline` and vice versa!
+
+  For example by default `li` items are `block` by default.
+
+  **Reason to change inline to block** : to add `margin:auto`. We can't do `margin:auto` on an inline element.
+  **Reason to change block to inline** : Stack `li` elements on one line , like a nav bar.
+
+  **Inline-block** : A mix of both ! 
+
+  This lets you set width, as well as stays in the same line, since you can't set width on `inline` elements
 <hr>
 ## CSS Reset 
 ```

@@ -1,0 +1,64 @@
+<!-- 
+    Given a side menu bar with the following markup to start off .
+    Style it so that , you end up with what looks like ./menu.png
+
+    <ul class="side-menu">
+    <li> <a href="#"> Home </a></li>
+    <li> <a href="#"> About </a></li>
+    <li> <a href="#"> Services </a></li>
+    <li> <a href="#"> Contact </a></li>
+    </ul>
+
+    Upon hovering the links should turn into coral color!
+  -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Menu Styling</title>
+  <style>
+    body{
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    .side-menu {
+      list-style: none;
+      border : #ddd solid 1px;
+      border-radius: 10px;
+      width: 300px;
+      padding: 20px;
+    }
+
+    .side-menu li {
+      font-size: 18px;
+      line-height: 2.4em;
+      border-bottom: dotted 1px #ddd;
+    }
+
+    .side-menu li:last-child {
+      border:none;
+    }
+
+    .side-menu li a{
+      text-decoration: none;
+      color: #333;
+    }
+
+    .side-menu li a:hover{
+      color: coral;
+    }
+  </style>
+</head>
+<body>
+  <ul class="side-menu">
+    <li> <a href="#"> Home </a></li>
+    <li> <a href="#"> About </a></li>
+    <li> <a href="#"> Services </a></li>
+    <li> <a href="#"> Contact </a></li>
+  </ul>
+</body>
+</html>
