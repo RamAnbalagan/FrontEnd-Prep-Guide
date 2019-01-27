@@ -1,0 +1,85 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CSS Variables</title>
+
+  <style>
+    /* 1. define scope */
+    /* Root scope , global scope */
+    :root {
+      /* Variable */
+      /* 2.define variable */
+      --dark-color: #333;
+      --primary-color: steelblue;
+      --secondary-color: skyblue;
+      --light-color: #f4f4f4;
+      --max-width: 1100px;
+      --box1-width: 1;
+      --box2-width: 2;
+    }
+
+    *{
+      margin: 0;
+      padding : 0;
+    }
+
+    body {
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      line-height: 1.4;
+      /* 3.Use variable */
+      background: var(--dark-color);
+      color: white;
+      padding: 1rem;      
+    }
+
+    header {
+      background: var(--primary-color);
+      text-align: center;
+      border-bottom: 5px solid var(--secondary-color);
+    }
+    
+    .container {
+      display: flex;
+      margin: auto;
+      max-width: var(--max-width);
+    }
+
+    .box {
+      background: var(--primary-color);
+      border-bottom: 10px var(--secondary-color) solid;
+      padding: 1rem;
+      margin: 1rem;
+    }
+
+    .box.box-1 {
+      flex: var(--box1-width);
+    }
+
+    .box.box-2 {
+      flex: var(--box2-width);
+    }
+  </style>
+</head>
+<body>
+  
+  <header>
+    <h1> CSS Variables</h1>
+  </header>
+
+  <div class="container">
+    <div class="box box-1">
+      <h3> Heading</h3>
+      <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque aliquid iste incidunt omnis, quibusdam veniam iusto qui at voluptates consequatur aspernatur quos voluptas corrupti necessitatibus ut distinctio expedita fugiat cum?
+      </p>
+    </div>
+    <div class="box box-2">
+      <h3> Heading</h3>
+      <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque aliquid iste incidunt omnis, quibusdam veniam iusto qui at voluptates consequatur aspernatur quos voluptas corrupti necessitatibus ut distinctio expedita fugiat cum?
+      </p>
+    </div>
+  </div>
+
+</body>
+</html>
