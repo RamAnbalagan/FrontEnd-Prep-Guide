@@ -1,0 +1,59 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .container {
+      display: flex;
+      
+    }
+
+    .box {
+      border: 0.5px black solid;
+      padding: 1rem;
+      margin: 0.5rem;
+      background: coral;
+
+      /* BOX SHADOW */
+
+      /* Offset x | Offset y | color */
+      box-shadow : 10px 10px teal;
+
+      /* Offset x | Offset y | blue-radius | color */
+      box-shadow : 10px 10px 20px teal;
+
+      /* Negative values */
+      box-shadow: -5px -5px 20px teal;
+
+      /* Offset x | Offset y | blue-radius | spread radius color */
+      box-shadow : 3px 3px 10px 1px rgba(0,0,0,0.9);
+
+      /* inset | Offset x | Offset y  color */
+      box-shadow :  inset 3px 3px teal;
+
+      /* Multiple shadows */
+      box-shadow: 3px 3px teal , -3px -3px olive;
+    }
+
+  </style>
+
+</head>
+<body>
+  <div class="container">
+    <div class="box">
+      <h3></h3>
+      <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, provident.</p>
+    </div>
+    <div class="box">
+      <h3></h3>
+      <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, provident.</p>
+    </div>
+    <div class="box">
+      <h3></h3>
+      <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, provident.</p>
+    </div>
+  </div>
+</body>
+</html>

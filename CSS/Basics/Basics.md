@@ -383,12 +383,38 @@ body{
 **Absolute**
 cm : Centimeters
 mm : millimeters
+px : pixels
 **Relative**
 %   : To parent element
-em  : To font-size of parent element
-rem : To font-size of root element
+em  : **To font-size of parent element**
+rem : **To font-size of root element** `<html>`
 vw  : To 1% of viewport width
 vh  : To 1% of viewport width
+
+vh : **viewport heights**(there are 100 viewport slices from left to right no matter what the viewport height)
+vw : **viewport widths**((there are 100 viewport slices from right to left no matter what the viewport width))
+> **We want to use rem units as much as possible, drop ems all together**
+> **Vh allows us to setup landing pages easily**
+Because
+  * `Em`s are confusing, since their parent keeps changing depending on where they are located / how nested they are.Whereas `rem`s are more reliable and are cleaner than `em`s
+  * we need some kinda multipler, to help us with responsive behavior. Pixels are more absolute, whereas rems are relative and scale very well.
+
+
+  Example 
+  ```javascript
+  #box-2 h3{
+    font-size: 2rem; // 2 * font size of <html>
+                    // = 32px , since by default font size of <html> is 16px;
+  }
+  ```
+  Another huge reason to use `rem` units is **Accessibility**, because when we choose the size in a browser as small, rem would correspondingly decrease and increase in size.
+
+  For example :
+  1) **Using rem** : Chrome -> settings -> Appearance -> Font-size -> large = **Results in font size increasing**
+  2) **Using em or px** : Chrome -> settings -> Appearance -> Font-size -> large = **Results in no changes**
+
+
+  > **Rem units are adaptive and repsonsive, making it accessible.**
 <hr>
 ## Colors
 

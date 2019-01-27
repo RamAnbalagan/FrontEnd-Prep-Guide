@@ -1,0 +1,66 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Before and after</title>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #333;
+      color: white;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 100vh;
+
+    }
+
+    /* Before */
+    header:before{
+      content: '';
+      background: url('https://source.unsplash.com/1600x900/?nature,water') no-repeat center center/cover;
+      opacity: 0.3;
+      position: absolute;
+      top: 0;
+      left:0;
+      width: 100%;
+      height:100%;
+      z-index: -1;
+    }
+
+    /* after */
+    .is-required:after {
+      content: '*';
+      color: red;
+      padding-left: 2px;
+    }
+    
+  
+  </style>
+
+</head>
+<body>
+
+  <!-- <label class="is-required" for="name"> Name</label>
+  <input type="text"> -->
+
+  <header>
+    <h1> Hello World</h1>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus odit aut temporibus labore quidem eaque dolores est, dignissimos, iure beatae autem, magni delectus optio quaerat blanditiis similique illum alias porro!
+    </p>
+
+  </header>
+  <section>
+    <h3> Lorem ipsum dolor sit amet.</h3>
+    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, veritatis assumenda! Neque quod magnam dolorem necessitatibus culpa autem magni. Enim distinctio ad rerum quidem ratione incidunt corrupti! Porro, doloremque eius.</p>
+  </section>
+</body>
+</html>
