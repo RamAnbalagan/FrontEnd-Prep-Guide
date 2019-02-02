@@ -67,7 +67,9 @@
   ##### Traversing the DOM 
   >We prefer to use the Element methods over the Node ones.
 
-  Fetching the ParentNode and ParentElement
+  In most cases, parentElement  is the same as parentNode. The only difference comes when a node's parentNode is not an element. If so, parentElement is null
+
+  **Fetching the ParentNode and ParentElement**
   ```javascript
 
   // Parent Node
@@ -82,7 +84,7 @@
   var grandParent = itemList.parentElement.parentElement;
   ```
 
-  Fetching the ChildNodes and Children
+  **Fetching the ChildNodes and Children**
   ```javascript
     // A node list that includes even lineBreaks as  Textnodes
     itemList.childNodes ;
@@ -100,7 +102,7 @@
   itemList.previousElementSibling;
   ```
 
-  Creating Elements
+  **Creating Elements**
   ```javascript
   // Create a new element
   var newDiv = document.createElement('div');
@@ -117,10 +119,44 @@
   // Insert into the actual DOM
   var container = document.querySelector('header .container');
   var h1 = document.querySelector('header h1');
-  container.insertBeofre(newDiv,h1);
+  container.insertBefore(newDiv,h1);
   ```
 
-  ##### Difference between HTMLCollection , NodeList Array
+  Using a **Document Fragment**
+
+  DocumentFragments are DOM Nodes. They are never part of the main DOM tree. The usual use case is to create the document fragment, append elements to the document fragment and then append the document fragment to the DOM tree. In the DOM tree, the document fragment is replaced by all its children.
+  
+  Since the document fragment is in memory and not part of the main DOM tree, appending children to it does not cause page reflow (computation of element's position and geometry). Historically, using document fragments could result in better performance.
+  ```javascript
+  var element  = document.getElementById('ul'); // assuming ul exists
+var fragment = document.createDocumentFragment();
+var browsers = ['Firefox', 'Chrome', 'Opera', 
+    'Safari', 'Internet Explorer'];
+
+browsers.forEach(function(browser) {
+    var li = document.createElement('li');
+    li.textContent = browser;
+    fragment.appendChild(li);
+});
+
+element.appendChild(fragment);
+  ```
+  #### Difference between Element.innerHTML , Node.textContent, nodeValue , HTMLElementinnerText 
+  **innerText** is roughly what you would get if you selected the text and copied it. Elements that are not rendered are not present in innerText.
+
+  **textContent** is a concatenation of the values of all TextNodes in the sub-tree. Whether rendered or not.
+   Basically, innerText is aware of the rendered appearance of text, while textContent is not.
+
+   >Imagine that you have a element that have a "display: block" or "visibility: hidden" if you access the element and then you get the text with innerText, you cant do that because that element is hidden, instead with textContent you can get the content of a hidden element.
+
+  **innerHTML** is parsed by the browser and is completely seperate from those two! it gets or sets the HTML or XML markup contained within the element.
+
+  [MDN innerHtml](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML)
+  [MDN innerText](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/innerText)
+  [MDN textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent)
+
+
+  #### Difference between HTMLCollection , NodeList Array
   
   An HTMLCollection is a list of nodes. An individual node may be accessed by either ordinal index or the node’s name or id attributes.
   Collections in the HTML DOM are assumed to be live meaning that they are automatically updated when the underlying document is changed.
@@ -148,7 +184,26 @@
   const divyArray = Array.slice.call(nodelist);
   ```
   ----
-  ### Events : Handling, Delegation / Bubbling
+  ### Nodes
+  Elements are not the only type of nodes in a DOM. 
+
+  >**DOM is a tree of nodes, not a tree of elements!**
+  There are many different types of nodes.
+  *Comment
+  *Elements
+  *TextNodes
+  *Attributes
+
+  [W3 Node Types](https://www.w3schools.com/jsref/prop_node_nodetype.asp)
+
+  ####Node Methods**
+  1) **Node.nodeType** : returns the type of nodes.
+  2) **Node.nodeName** : Returns the name of the node.
+  3) **Node.hasChildNodes()** : Returns T / F depending on if children present.
+  4) **Node.cloneNode(true)** : Deep clones a node.
+
+
+  ### Events : Handling, Delegation /     Bubbling
   Handling Events
    
   1. Adding an EventListner
@@ -181,7 +236,7 @@
         console.log(e.offsetY);
       }
       ```
-3.  Type of Events 
+1.  Type of Events 
   
     **Mouse events**
     ```javascript
