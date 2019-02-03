@@ -1,4 +1,14 @@
 
+/**
+ *  Pretend you have a blog and posts is the response from the server.
+ *  
+ * write a two functions called 
+ * 1) createPost
+ * 2) Get Posts
+ * 
+ *  Use Promises and SetTimeout to simulate Async!
+ */
+
 // Promises
 // You generally don't have to return a promise, since you will mostly be dealing with promises that already exist!
 

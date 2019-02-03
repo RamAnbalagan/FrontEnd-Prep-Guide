@@ -33,6 +33,21 @@ The goal of the following solutions is essentially around the premise of "How do
 * XHR = ( XmlHTTP REquest) Object
 
 <hr>
+## REST API
+
+* API stands for **Application Programming interface**.
+* It is a contract provided by one piece of software to another
+* Structured request and response.
+* REST stands for Representational state transfer.
+* Relies on a stateless, client-server protocol , almost always HTTP
+* **Treats server objects as resources that can be created or destroyed!**
+
+![restapi](../../Misc/Resources/restApi.png)
+
+###HTTP Requests
+![httprequests](../../Misc/Resources/HTTPRequests.png)
+>**Endpoints are URLs you use to do certain things!**
+<hr>
 ## Callbacks
 
 * Callbacks stand for continuation ! It is one way to handle async tasks!
@@ -84,12 +99,12 @@ The goal of the following solutions is essentially around the premise of "How do
   ### Creating Promises
   To create a promise you use a `promise` constructor and a Callback function.
 
-  let p = new Promise(callback function ) ;
+  `let p = new Promise(callback function );`
 
   And the callback function sets up what the promise is to do and also how to handle the resolve and reject.
 
-  Resolve : Function that will be invoked when promise is resolved
-  Reject : function that will be invoked when promise is rejected.
+  **Resolve** : Function that will be invoked when promise is resolved
+  **Reject** : Function that will be invoked when promise is rejected.
 
   ```javascript
   let p = new Promise( function(resolve, reject) {
@@ -108,6 +123,25 @@ The goal of the following solutions is essentially around the premise of "How do
   ```
   https://www.youtube.com/watch?v=iD42bSyhmdw
   ### Basic usage of  promises
+
+   ```javascript
+    function someAsyncTask () {
+      return new Promise( resolve, reject) {
+        // PERFORM task
+        if(error) {
+          reject(error);
+        }
+        else{
+          resolve(response);
+        }
+      }
+    }
+
+    someAsyncTask
+      .then( resp => handleresp(resp))
+      .catch ( err => handleErr(err));
+
+   ```
   ### Advanced promise usage
   ### Fetch api
 
