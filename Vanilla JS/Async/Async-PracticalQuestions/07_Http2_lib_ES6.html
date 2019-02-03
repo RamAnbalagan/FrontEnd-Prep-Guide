@@ -1,0 +1,47 @@
+<!-- Build a HTTP library using the following components
+
+  * Promises
+  * ES6 Classes
+  * Fetch Api 
+
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script src="http2.js"></script>
+  <script>
+    const http = new http2;
+    // GET
+    http.get('https://jsonplaceholder.typicode.com/users')
+        .then(data => console.log(data))
+        .catch(err => console.log(err));
+    
+    // User data
+    const data = {
+      name : 'John doe',
+      username: 'johndoe',
+      email: 'jdoe@gmail.com'
+    }
+    // POST
+    http.post('https://jsonplaceholder.typicode.com/users',data)
+        .then(data => console.log(data))
+        .catch(err => console.log(err));
+    
+    // PUT
+    http.put('https://jsonplaceholder.typicode.com/users/2',data)
+        .then(data => console.log(data))
+        .catch(err => console.log(err));
+
+    // Delete
+    http.delete('https://jsonplaceholder.typicode.com/users/5')
+        .then(data => console.log(data))
+        .catch(err => console.log(err));
+  </script>
+</body>
+</html>
