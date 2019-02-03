@@ -2,12 +2,38 @@
 ----
 Asynchronous programming is basically having sections of your code that complete in parallel in their own sweet time , or return some response after an arbitrary unpredicatable time . You have to structure the rest of your code to handle this! 
 
+![sync](../../Misc/Resources/syncload.png)
+![Async](../../Misc/Resources/asyncload.png)
+
+
+
 > Our brains work in a synchronous fashion, we go from line 1 - line 2 to line3! But the reality of JS code is async in nature.
 
 Multi tasking is just fast context switching! We can't think asynchronously.
 
 The goal of the following solutions is essentially around the premise of "How do I take something that is fundamentally async, and structure about it in a synchronous fashion so I wrap my head around it"
-# Callbacks
+
+**Examples of Async technologies**
+* XMLHttpRequest and Fetch
+* jQuery Ajax, Axios other HTTP libraries
+* Node.js fs(filesystem) module
+
+**Handling Async responses using**
+* Callbacks
+* Promises
+* Async/Await
+<hr>
+## Ajax
+![ajax](../../Misc/Resources/ajax.png)
+
+* AJAX = Asynchronous Javascript and XML
+* It's not a lang / framework , but a set of web technologies
+* It's sends and receive data async.
+* JSON has replaced XML for most part
+* XHR = ( XmlHTTP REquest) Object
+
+<hr>
+## Callbacks
 
 * Callbacks stand for continuation ! It is one way to handle async tasks!
 * The problem with callbacks is that it works 'Okay' with one split and is really bad with more than one split!

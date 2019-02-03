@@ -1,0 +1,58 @@
+<!--  Fetch all customers from JSON and output each customer's detail as a li item when clicking the 'get customers' button using Ajax 
+
+  Each customer must have their data in a UL 
+-->
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ajax JSON</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+</head>
+<body>
+  <div class="container">
+    <button id="button">Get Customers</button>
+    <br><br>
+    <h1> Customers</h1>
+    <div id="customer"></div>
+  </div>
+  <script>
+   
+    document.querySelector('#button').addEventListener('click',loadCustomers);
+
+    function loadCustomers(e) {
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', 'customer.json', true);
+      xhr.onload = function () {
+        if(this.status === 200) {
+          const customers = JSON.parse(this.responseText);
+
+          let output = '';
+          customers.forEach(customer => {
+            output += constructCustomer(customer);
+          });
+          
+          
+          document.querySelector('#customer').innerHTML = output;
+        }
+      }
+      xhr.send();
+      e.preventDefault();
+    }
+
+    function constructCustomer(customer) {
+      const output = `
+            <ul>
+              <li>ID: ${customer.id}</li>
+              <li>Name: ${customer.name}</li>
+              <li>Company: ${customer.company}</li>
+              <li>Phone: ${customer.phone}</li>
+            </ul>
+          `;
+      return output;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!-- fetch some text data from data.txt fileusing XHR and log it in the console upon clicking the get data button! -->
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+</head>
+<body>
+  <div class="container">
+    <button id="button"> Get Data</button>
+  </div>
+  <script>
+    // Event listener
+    document.querySelector('#button').addEventListener('click', loadData);
+    function loadData() {
+      // 1.Create an XHR Object
+      const xhr = new XMLHttpRequest();
+
+      // 2. OPEN
+      xhr.open('GET', 'data.txt', true);
+      //optional - used for spinners!
+      xhr.onprogress = function () {
+        console.log('READSTATE', xhr.readyState);
+      }
+
+      xhr.onload = function() {
+        console.log('READSTATE', xhr.readyState);
+        if(this.status === 200) {
+          console.log(this.responseText);
+        }
+      }
+      // 3. SEND
+      xhr.send();
+
+      // HTTP Statuses
+      // 200 : 'ok
+      // 403 : 'forbidden'
+      // 404 : 'not found'
+
+      // ready State values
+      // 0 : request not initialized
+      // 1 : server connection established
+      // 2 : request received
+      // 3 : processing request
+      // 4 : request finished and response is ready  ( State when onLoad runs!)
+    }
+  </script>
+</body>
+</html>
