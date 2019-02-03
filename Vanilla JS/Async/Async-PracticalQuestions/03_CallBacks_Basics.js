@@ -1,5 +1,13 @@
 
-// Callbacks
+/**
+ *  Pretend you have a blog and posts is the response from the server.
+ *  
+ * write a two functions called 
+ * 1) createPost
+ * 2) Get Posts
+ * 
+ *  UseCallbacks and SetTimeout to simulate Async!
+ */
 
 const posts = [
   { title: 'Post One', body: 'This is post one'},
@@ -25,5 +33,3 @@ function createPost(post, callback) {
 }
 
 createPost( {title: 'Post three', body: 'This is post three'} , getPosts);
-
-
