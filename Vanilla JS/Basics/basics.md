@@ -287,3 +287,33 @@ var timestamp = +new Date();
   a + b; // "420"
   c + d; // 42
 ```
+<hr>
+## Error Handling
+```javascript
+  try{
+    // Produce a reference error
+    myFunction();
+  }
+  catch(e) {
+    console.log(e.message);
+  }
+  finally {
+    console.log('Finally runs regardless of results');
+  }
+  console.log('Program continues');
+```
+
+Types of errors :
+- TypeError : `myfunction()`
+- ReferenceError : `null.myFunction()`
+- Syntax error : `eval('hey')`
+- URI error : `decodeURIComponent('%')`
+  
+`e.name` contains the name of the error : **ReferenceError**
+`e.message`contains the message : "myFunction is not defined"
+
+>The main benefit of error handling is that , your program continues to execute inspite of an error and does not crash.
+
+**We can create our own error too!**
+  - Using the throw keyword.
+  - `throw new SyntaxError('User has no name');

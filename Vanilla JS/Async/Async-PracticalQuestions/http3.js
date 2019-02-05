@@ -37,17 +37,15 @@ class http2 {
 
   // Make a http Delete request
   async delete(url){
-    return new Promise( (resolve,reject) => {
-      fetch(url, {
-        method: 'DELETE',
-        headers: {
-          'Content-type': 'application/json'
-        },
-      })
-      .then(res => res.json())
-      .then(data => resolve('Resource deleted..'))
-      .catch(err => reject(err));
+    const response = await fetch(url, {
+      method: 'DELETE',
+      headers: {
+        'Content-type': 'application/json'
+      },
     });
+
+    const resData = await 'Resource Deleted...';
+    return resData;
   }
   
 }
