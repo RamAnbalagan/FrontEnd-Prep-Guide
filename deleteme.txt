@@ -1,0 +1,98 @@
+1) Write a function to flatten an array - both recursively and iteratively.
+2) Given 2 identical DOM trees (but not equal ) and one element of the first DOM tree,
+ how would find this element in the second dom tree
+3) Write an emitter class 
+   emitter = new Emitter () 
+   should support the following :
+   --------
+   a)Subscribing to events - sub = emitter.subscribe('event_name',callback)
+   b)emiting events - emiiter.emit('event_name',foo,bar)
+   c) unsubscribing existing subscriptions by releasing them - sub.release()
+
+4) Explain the concept of ES6 promises to a 5 year old
+5) What are the advantages of using ES6 maps over objects?
+6) What are the advantages of using ES6 sets over arrays ?
+7) items= {
+               color : 'red',
+               type : 'tv',
+               age: 18 
+              },
+              {
+               color : 'red',
+               type : 'tv',
+               age: 18 
+              },
+              {
+               color : 'red',
+               type : 'tv',	
+               age: 18 
+              }
+  function excludeItems ( items, excludes ) {
+     excludes.forEach(pair =>{items = items.filter(item => item[pair.k] === item[pair.v]);
+  });return items;}
+
+  excludes = [ {k:'color', v:'silver'}, {k:'type', v:'tv},...]
+
+ a) describe what the function is doing 
+ b) what is wrong with that function ? 
+ c) how would you optimize it?
+ 
+8) Design and code a poll widget. Know ur positioning and diff between the 4 css values in and out.
+9) Calendar challenge
+10) Given a grid of characters output a decoded message. the message for the following would be 'IROCKA' . (diagonally down right 
+    and diagonally up right if you can't go futher-- you continue doing this ) 
+   I B C A L K A D R F C A E A G H O E L A D
+    3x7 grid .
+11)Event bubbling 
+12) Debounce
+13) If you have 500 revisions of a program, write a program that will find and return the first BAD revision given a isBAD(revision i) function
+14)a) Givn a picture how would you hide / show a child picture on hovering it's parent ?
+   b) How would you ensure clicking on this picture would goto a specific link ?
+   c) how would you ensure the child is positioned in the top right of the parent picture.
+15) Implement a Simple observable in JS 
+16) Given an input array and another array that describes a nwe index for each element , mutate the input array so that each element ends up in their new index,
+   discuss the runtime and also how can you be sure there wont be infinite loops.
+17) Convert Roman numerals(string)to sum(number).
+18) Animate a given element using JS across any given time frame
+19) Write a function to compute the square root of a number without using anu built in functions.
+20) Given 2 very large numbers each of which is so large it can be represented as an arry of integers, write a function to multiply them.
+21) Write a function to display a JSON string in pretty format
+22) What is the difference between Map and For In 
+23) Implement a simple store class with set ( Node, value ) . Get(Node) and Has(node) methods. which stores a given numner of nodes with correspponding values.
+24) Build a puzzle game with JS
+25) Using HTML and CSS how would you show another image , aligned to the bottom right when the user hovers the image. Ex: the facebook edit profile picture icon
+26) You are given an array of N elements in the form "property1: value1; property2: value2;...;propertyX: valueX;"
+for some some N and any X. There is also another array of M elements of the form "property: value".
+You are supposed to write an algorithm to remove every element in the N length array that has a "property: value" pair
+in the M length array.
+The trick is that the most intuitive solution of iterating through the M array and filtering the N array at each element is already written. You must come up with a solution that solves the problem in less than O(NM) time.  
+
+27) 
+We have an array of objects A and an array of indexes B.
+Reorder objects in array A with given indexes in array B. Do not change array A's length. 
+
+example:
+
+var A = [C, D, E, F, G];
+var B = [3, 0, 4, 1, 2];
+
+sort(A, B);
+// A is now [D, F, G, C, E];
+  
+28) 
+Given a value N, return the corresponding string according to this pattern.
+1
+11
+21
+1211
+111221
+312211  
+
+29)
+given two arrays, one of them is a map to another,
+ you need to traverse and exclude from array objects according to the map,
+ in general they expect from you to build an map object from key+value but you have to use ES6 MAP where key
+ can be stored as object and not as string or ASCII coded string.
+ The second question was about setTimeout browser api,
+ you will be asked to clean all timeouts, the answer is to override setTimeout and store all of them in stuck and clean them if needed.
+    

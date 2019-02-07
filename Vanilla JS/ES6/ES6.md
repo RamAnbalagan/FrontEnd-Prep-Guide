@@ -84,7 +84,7 @@ map1.forEach( (value,key) => {
     console.log(itesm);
   });
 ```
-
+<hr>
 ## Destructuring
 
  * Assignment   : `let [a,b] = [100,200]`
@@ -114,3 +114,39 @@ map1.forEach( (value,key) => {
 
     const { name, age , city , gender, sayHello } = person;
     ```
+  <hr>
+
+  ## ES 6 Modules
+
+  An Example of pre-es6 modules technique ( common js)
+
+  ```javascript
+
+  // file mymodule.js
+  module.exports = {
+    name : 'Brad',
+    email: 'test@test.com`
+  }
+
+
+
+  // In another file 
+  const person = require('./mymodule1');
+  console.log(person.name);
+  ```
+
+  An example of **Es 6 modules**
+  ```javascript
+  // file mymodule2
+  export const person = {
+    name: 'John',
+    email : 'john@ron.com`
+  }
+
+  export function sayHello
+  // In another file 
+  import { person } from './mymodule2'
+  console.log(person.name);
+  ````
+
+
