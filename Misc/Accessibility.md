@@ -2,7 +2,7 @@
 <hr>
 ## Why accessibility ?
 
-Accessibility is the practice of making your websites usable by as many people as possible — we traditionally think of this as being about people with disabilities, but really it also benefits other groups such as those using mobile devices, or those with slow network connections.
+Accessibility is the practice of making your websites usable by as many people as possible — we tradition ally think of this as being about people with disabilities, but really it also benefits other groups such as those using mobile devices, or those with slow network connections.
 
 You could also think of accessibility as treating everyone the same, and giving them the same opportunities, no matter what their ability or circumstances. In the same way that it is not right to exclude someone from a physical building because they are in a wheelchair (public buildings generally have wheelchair ramps or elevators these days), it is also not right to exclude someone from a website because they have a visual impairment. We are all different, but we are all human, and therefore have the same (human) rights.
 
