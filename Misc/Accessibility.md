@@ -133,7 +133,92 @@ You should make sure that your button and link text labels are understandable an
 Controls being listed in VoiceOver on mac
 ![voiceover-formcontrols](Resources/voiceover-formcontrols.png)
 
-## ARIA
+**Labels in links**
+```javascript
+// Good link text
+<p>Whales are really awesome creatures. <a href="whales.html">Find out more about whales</a>.</p>
+
+// Bad link text
+<p>Whales are really awesome creatures. To find more out about whales, <a href="whales.html">click here</a>.</p>
+```
+**Labels in forms**
+
+```javascript
+// Good form label
+<div>
+  <label for="name">Fill in your name:</label>
+  <input type="text" id="name" name="name">
+</div>
+
+// Bad form label
+Fill in your name: <input type="text" id="name" name="name">
+```
+>As an added bonus, in most browsers associating a label with a form input means that you can click the label to select/activate the form element. This gives the input a bigger hit area, making it easier to select.
+
+### 4. Tables
+
+### 5. Multimedia alternatives
+Whereas textual content is inherently accessible, the same cannot necessarily be said for multimedia content — image/video content cannot be seen by visually-impaired people, and audio content cannot be heard by hearing-impaired people.
+
+```javascript
+// No context for screen readers
+<img src="dinosaur.png">
+
+// ALt text available
+<img src="dinosaur.png"
+     alt="A red Tyrannosaurus Rex: A two legged dinosaur standing upright like a human, with small arms, and a large head with lots of sharp teeth.">
+
+// Alt text + title available. Title will give more context , also when you hover over the image , it would show the text
+<img src="dinosaur.png"
+     alt="A red Tyrannosaurus Rex: A two legged dinosaur standing upright like a human, with small arms, and a large head with lots of sharp teeth."
+     title="The Mozilla red dinosaur">
+
+
+<img src="dinosaur.png" aria-labelledby="dino-label">
+
+<p id="dino-label">The Mozilla red Tyrannosaurus Rex: A two legged dinosaur standing upright like a human, with small arms, and a large head with lots of sharp teeth.</p>
+```
+![dino](Resources/title-attribute.png)
+
+**Empty alt attributes**
+```javascript
+<h3>
+  <img src="article-icon.png" alt="">
+  Tyrannosaurus Rex: the king of the dinosaurs
+</h3>
+```
+This can be done for images, which are needed purely for visual decoration!
+The reason to use an empty alt instead of not including it is because many screen readers announce the whole image URL if no alt is provided.
+<hr>
+## CSS and Javascript are accessible ?
+
+>**It is important that you consider some best practice advice to make sure that your use of CSS and JavaScript doesn't ruin the accessibility of your documents**
+
+**CSS** 
+* Select sensible font sizes , line heights, fonts.
+* Make sure your headings stand out from body, your list should look like lists.
+* **Contrast** : Your text color should contrast well with the background color.
+  WebAIM's Color Contrast Checker is simple to use, and provides an explanation of what you need to conform to the WCAG criteria around color contrast. http://webaim.org/resources/contrastchecker/
+* **Style abbreviations** with a dotted underline
+  ```javascript
+  <p>Web content is marked up using <abbr title="Hypertext Markup Language">HTML</abbr>.</p>
+
+  abbr {
+    color: #a60000;
+  }
+  ```
+* **Tables** : Make headers bold and use zebra striping for rows!
+* **Hiding things** : Use absolute position, instead of `display:none` or `visibility:hidden` to hide multiple tabs , since we want the screen reader to get access to everything!
+
+**Javascript**
+* Too much javascript should not be used. Think carefully if all that DOM Manipulation and fancy shiny JS code is needed. Don't generate HTML with JS if avoidable.
+* **Unobtrusive JS** : should be used wherever possible to enhance functionality, not build it in entirely — basic functions should ideally work without JavaScript, although it is appreciated that this is not always an option
+    Examples : Providing client side validation on form entries, Providing custom controls for HTML5
+  
+
+
+<hr>
+## WAI - ARIA
 
 Accessible Rich Internet Applications or shortly referred to as ARIA is a specification standard that aims at making the web easily accessible to humans.
 
@@ -157,7 +242,48 @@ If a role is used more than once on a page, the aria-label attribute should also
 * `<div role=”navigation” aria-label=”Main menu”>`
 * `<div role=”navigation” aria-label=”User menu”>`
 
-<hr>
-## Labeling links
+
+### Labeling links and images
+
+```javascript
+<img src="dinosaur.png" aria-labelledby="dino-label">
+
+<p id="dino-label">The Mozilla red Tyrannosaurus ... </p>
+```
+In this case, we are not using the alt attribute at all — instead, we have presented our description of the image as a regular text paragraph, given it an id, and then used the aria-labelledby attribute to refer to that id, which causes screenreaders to use that paragraph as the alt text/label for that image. This is especially useful if you want to use the same text as a label for multiple images — something that isn't possible with alt.
+
+### 4 Key Use cases
+
+1. **Signposts/Landmarks** 
+   ARIA's role attribute values can act as landmarks that either replicate the semantics of HTML5 elements (e.g. <nav>), or go beyond HTML5 semantics to provide signposts to different functional areas, e.g search, tabgroup, tab, listbox, etc.
+   <br>
+
+2. **Dynamic Content updates**
+   we have a simple random quote box
+   ```javascript
+   <section>
+    <h1>Random quote</h1>
+    <blockquote>
+      <p></p>
+    </blockquote>
+   </section>
+   ```
+   Our JavaScript loads a JSON file via XMLHttpRequest containing a series of random quotes and their authors. Once that is done, we start up a setInterval() loop that loads a new random quote into the quote box every 10 seconds.
+
+   this works OK, but it is not good for accessibility — the content update is not detected by screenreaders, so their users would not know what is going on.
+
+   WAI-ARIA fortunately provides a useful mechanism to provide these alerts — the `aria-live` property. Applying this to an element causes screenreaders to read out the content that is updated. How urgently the content is read out depends on the attribute value:
+
+   * `off`: The default. Updates should not be announced.
+   * `polite`: Updates should be announced only if the user is idle.
+   * `assertive`: Updates should be announced to the user as soon as possible.<br>
+   **To use simply add the aria-live property into the section tag!**
+   ```javascript
+    <section aria-live="assertive">
+   ```
 
 
+3. **Enhancing Keyboard accessibility**
+   Same as using `tabIndex="0"` and -1
+4. **Accessibility of non-semantic controls**
+   
