@@ -86,7 +86,7 @@
 
   **Fetching the ChildNodes and Children**
   ```javascript
-    // A node list that includes even lineBreaks as  Textnodes
+    // A node list that includes even lineBreaks as Textnodes
     itemList.childNodes ;
     // A HTMLCollection that doesn't include the linebreaks - RECOMMENDED!
     itemList.children;

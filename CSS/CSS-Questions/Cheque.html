@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta >
+    <title> Cashier's Check</title>
+    <style>
+      * {
+        padding: 0;
+        margin:0;
+        box-sizing: border-box;
+      }
+      body {
+        background: #333;
+        color: black;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; 
+        width: 100%;
+      }
+
+      .even {
+        display: flex;
+        justify-content:space-evenly;
+      }
+      .box{
+        background: lightblue;
+        width: 100%;
+        height: 60px;
+        padding: 0.5rem;
+        margin: 0.5rem;
+      }
+      header {
+        display:flex;
+        justify-content: space-between;
+      }
+      #date {
+        display: flex;
+        justify-content: center;
+        width: 50%;
+      } 
+
+      #date p{
+        padding-top: 1.5rem;
+      }
+      #date .small-underline {
+        width: 60%;
+        border-bottom: black 2px solid;
+        margin: 1rem;
+        height: 1.5rem;
+      }
+      .big-underline {
+        width: 60%;
+        border-bottom: black 2px solid;
+        margin: 1rem;
+      }
+      .huge-underline {
+        width: 80%;
+        border-bottom: black 2px solid;
+        margin: 1rem;
+      }
+      #amount {
+        display: inline-block;
+        height: 2rem;
+        width: 3rem;
+        margin-left:1rem;
+        border: 2px solid black;
+      }
+      #symbol {
+        position: absolute;
+        top:10%;
+      }
+      #amountBox{
+        position: relative;
+      }
+
+      .center {
+        display: flex;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="box">
+        <div id="customer-details">
+          <p>Jane Doe</p>
+          <p>123 Main st</p>
+          <p>Anywhere US 10111</p>
+        </div>
+        <div id="date">
+          <p>Date</p>
+          <div class="small-underline"> </div>
+        </div>
+    </header>
+    <section class="box even">
+      <div>
+        <p> PAY TO THE</p>
+        <p> ORDER OF</p>
+      </div>
+      <div class="big-underline">
+
+      </div>
+      <div id="amountBox">
+        <span id="symbol"> $</span><span id="amount"></div>
+      </div>
+    </section>
+    <section class="box center">
+      <div class="huge-underline"></div>
+      <p> Dollars</p>
+    </section>
+    <section class="box"></section>
+    <section class="box"></section>
+    <section class="box"></section>
+    <footer>
+    </footer>
+  </body>
+</html>
