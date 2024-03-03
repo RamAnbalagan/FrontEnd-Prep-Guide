@@ -41,7 +41,9 @@ class myPromise {
     }
   }
 
-  //This loop is wrapped in a try/catch block. This is special JavaScript syntax that looks for errors. If your asynchronous function calls reject(error) or your try/catch recognizes an error, it will then be passed to the onReject() method which calls the function that you passed to .catch().
+  //This loop is wrapped in a try/catch block.
+  //This is special JavaScript syntax that looks for errors
+  // If your asynchronous function calls reject(error) or your try/catch recognizes an error, it will then be passed to the onReject() method which calls the function that you passed to .catch().
   onReject(error) {
     this.handleError(error);
   }
